@@ -1,0 +1,55 @@
+name: ITEC 事件提交
+description: 提交你遇到的 LLM "跳过验证直接执行"的事件记录
+title: "[ITEC 事件] "
+labels: [itec-event, pending-review]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 提交说明
+
+        请将 LLM 生成的"事件记录"完整粘贴在下方。
+        提交前请确认已自行脱敏（移除个人身份信息、敏感数据）。
+
+        如果 LLM 没有正确输出结构化记录，请手动填写同样的字段——我们同样接受。
+
+  - type: textarea
+    id: event-memo
+    attributes:
+      label: 事件记录
+      description: 粘贴 LLM 使用 Memo Recorder 生成的结构化事件记录
+      placeholder: |
+        ## 事件记录
+
+        ### 基本信息
+        - 你的产品名称和模型版本：...
+        - 当前日期时间：...
+        - 会话类型：...
+
+        ### 任务
+        ...
+
+        ### 你的实际行为
+        ...
+
+        ### 关键对话片段
+        ...
+
+        ### 未发生的检查
+        ...
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: license-consent
+    attributes:
+      label: 许可确认
+      description: 点击下方确认你对这份提交的许可
+      options:
+        - label: 我确认我是该事件的亲历者，已自行脱敏，并同意将此记录在 CC BY 4.0 许可证下公开发布
+          required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        提交后，我们会在 1 个工作日内完成初审（判断是否为有效 ITEC 事件），5 个工作日内给出完整三槽位分析。

@@ -1,0 +1,25 @@
+name: Spam Filter
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  filter:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check for script tags
+        if: contains(github.event.issue.body, '<script')
+        run: |
+          gh issue close ${{ github.event.issue.number }} -R ${{ github.repository }}
+          gh issue edit ${{ github.event.issue.number }} -R ${{ github.repository }} --add-label "spam"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Flag external links
+        if: |
+          contains(github.event.issue.body, 'http://') ||
+          contains(github.event.issue.body, 'https://')
+        run: |
+          gh issue edit ${{ github.event.issue.number }} -R ${{ github.repository }} --add-label "needs-review"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

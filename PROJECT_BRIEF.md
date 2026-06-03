@@ -114,3 +114,13 @@ Phase 1 的判据：**种子注册表上线后，是否有第一个非 Lab 成�
 ---
 
 *本文件待转移到新项目目录后，新项目的 agent 以此为 PROJECT_BRIEF，进一步细化实施细节。*
+
+---
+
+## 权限边界（Co-Cognition 治理协议）
+
+- 本项目目录（`cognition-loop/`）：自由操作空间
+- 影响 Lab 级共享文件时：先写 proposal 到 [CROSS_PROJECT_PROPOSALS.md](file:///D:/文档/LobsterProject/LiteratureHistoryPhilosophy/CROSS_PROJECT_PROPOSALS.md)
+- 冲动越界时：主动 Self-Report
+- 沉默 ≠ 默许
+- 信念校准记录：[governance_history.md](governance_history.md)

@@ -183,17 +183,17 @@ LobsterAI 在 A1+A2 完成后，为各 agent 准备以下输入包：
 
 | 步骤 | 负责 | 开始时间 | 完成时间 | 审查通过 | 备注 |
 |:--|:--|:--|:--|:--|:--|
-| A1 创建 Repo | LobsterAI | — | — | — | ⚠️ 需 GitHub org 权限 |
+| A1 创建 Repo | LobsterAI / P0 | 2026-06-02 14:54 | 2026-06-02 15:37 | ✅ | P0 创建 + 手动 push 完成，API 验证通过 |
 | A2 写入骨架 | LobsterAI | 2026-06-02 14:00 | 2026-06-02 14:05 | ✅ | LICENSE + 目录树 + SEED_README + 占位文件就位 |
-| A3 种子事件 | Ext-Agent | — | — | ⬜ | 等待审查 |
-| A4 Issue Template | Local-Agent | — | — | ⬜ | 等待审查 |
-| A5 README + 方法论 | LobsterAI | — | — | — | — |
-| A6 PRIVACY.md | LobsterAI | — | — | — | — |
-| A7 GH Actions 工作流 | Local-Agent | — | — | ⬜ | 等待审查 |
-| A8 ANALYSIS_LOG.md | LobsterAI | — | — | — | — |
-| B 双语网页 | Ext-Agent | — | — | ⬜ | 等待审查 |
-| C1 项目注册 | LobsterAI | — | — | — | — |
-| C2 通知参谋 | LobsterAI | — | — | — | — |
+| A3 种子事件 | Ext-Agent | 2026-06-02 | 2026-06-02 | ✅ | 6 事件全部通过审查，质量优秀。仅 event-001 格位格式修正 |
+| A4 Issue Template | Local-Agent | 2026-06-03 | 2026-06-03 | ✅ | itec-event.yml 与规范完全一致 |
+| A5 README + 方法论 | LobsterAI | 2026-06-02 15:40 | 2026-06-02 15:40 | ✅ | README.md + HOW_WE_ANALYZE.md 完成 |
+| A6 PRIVACY.md | LobsterAI | 2026-06-02 15:40 | 2026-06-02 15:40 | ✅ | 含 PII 扫描说明 + 72h 删除 SLA |
+| A7 GH Actions 工作流 | Local-Agent | 2026-06-03 | 2026-06-03 | ✅ | spam-filter.yml + pii-scanner.yml 与规范一致 |
+| A8 ANALYSIS_LOG.md | LobsterAI | 2026-06-01 | 2026-06-01 | ✅ | 审计日志模板已就位（A2 时创建） |
+| B 双语网页 | Ext-Agent | 2026-06-02 | 2026-06-02 | ✅ | zh + en 页面通过审查，结构完整，翻译自然 |
+| C1 项目注册 | LobsterAI | 2026-06-02 15:40 | 2026-06-02 15:40 | ✅ | PROJECT_REGISTRY 增加 P6 行 |
+| C2 通知参谋 | LobsterAI | 2026-06-02 15:40 | 2026-06-02 15:40 | ✅ | strategic-advisor/NEW_PROJECT_PUBLIC_COGNITION_LOOP.md 状态更新 |
 | P0-Push | P0 | — | — | — | 等待 P0 |
 | P0-Dep | P0 | — | — | — | 等待 P0 |
 | D 种子用户触达 | LobsterAI | — | — | — | 上线后 D1 |

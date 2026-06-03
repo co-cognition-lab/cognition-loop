@@ -1,0 +1,42 @@
+name: PII Scanner
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Scan for PII patterns
+        run: |
+          BODY="${{ github.event.issue.body }}"
+          PII_FOUND=false
+
+          # Email pattern
+          if echo "$BODY" | grep -qP '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}'; then
+            PII_FOUND=true
+          fi
+
+          # China mobile phone pattern
+          if echo "$BODY" | grep -qP '1[3-9]\d{9}'; then
+            PII_FOUND=true
+          fi
+
+          # China ID card pattern (18-digit)
+          if echo "$BODY" | grep -qP '\d{17}[\dXx]'; then
+            PII_FOUND=true
+          fi
+
+          # China ID card pattern (15-digit legacy)
+          if echo "$BODY" | grep -qP '\d{15}'; then
+            PII_FOUND=true
+          fi
+
+          if [ "$PII_FOUND" = true ]; then
+            gh issue edit ${{ github.event.issue.number }} -R ${{ github.repository }} --add-label "potential-pii"
+            echo "PII patterns detected - potential-pii label added"
+          else
+            echo "No PII patterns detected"
+          fi
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
